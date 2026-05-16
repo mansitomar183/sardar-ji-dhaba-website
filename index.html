@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sardar Ji Dhaba – Hazratganj, Lucknow</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: #faf6f0; color: #2c2c2a; }
+
+.hero {
+  background: linear-gradient(135deg, #1a0a00 0%, #3d1400 45%, #6b2800 100%);
+  padding: 3.5rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,165,0,0.15);
+  border: 1px solid rgba(255,165,0,0.4);
+  color: #ffb347;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+.hero h1 span { color: #ff9500; }
+.hero-sub { color: rgba(255,255,255,0.65); font-size: 15px; font-weight: 300; margin-top: 0.8rem; letter-spacing: 1px; }
+.hero-divider { margin: 1.5rem auto 0; width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #ff9500, transparent); }
+
+nav {
+  background: #2c1200;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #ff9500;
+  overflow-x: auto;
+}
+nav a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 14px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+nav a:hover, nav a.active { color: #ff9500; border-bottom-color: #ff9500; }
+
+.page { display: none; }
+.page.active { display: block; }
+.section { padding: 2.5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+
+.section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #2c1200; text-align: center; margin-bottom: 0.4rem; }
+.section-sub { text-align: center; color: #888780; font-size: 14px; margin-bottom: 2rem; }
+
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 2rem; }
+.stat-card { background: #fff; border-radius: 12px; padding: 1.4rem 1rem; text-align: center; border: 1px solid #e8e0d8; }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #c85000; }
+.stat-label { font-size: 11px; color: #888780; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.5; }
+
+.about-text { background: #fff; border-radius: 12px; padding: 1.6rem; border-left: 4px solid #ff9500; font-size: 15px; line-height: 1.9; color: #444441; }
+
+.menu-category { margin-bottom: 2.2rem; }
+.cat-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #c85000; border-bottom: 1px dashed #e8d5c0; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.menu-item { background: #fff; border-radius: 10px; padding: 13px 15px; border: 1px solid #e8e0d8; display: flex; justify-content: space-between; align-items: center; }
+.item-name { font-size: 14px; font-weight: 700; color: #2c2c2a; }
+.item-desc { font-size: 12px; color: #888780; margin-top: 3px; }
+.item-price { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #c85000; white-space: nowrap; margin-left: 8px; }
+.veg-dot { width: 8px; height: 8px; border-radius: 50%; background: #3d7a1f; display: inline-block; margin-right: 5px; }
+.nonveg-dot { width: 8px; height: 8px; border-radius: 50%; background: #c85000; display: inline-block; margin-right: 5px; }
+
+.booking-form { background: #fff; border-radius: 16px; padding: 2rem; border: 1px solid #e8e0d8; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.form-row { margin-bottom: 1.1rem; }
+.form-label { display: block; font-size: 12px; font-weight: 700; color: #444441; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.form-input { width: 100%; padding: 12px 14px; border: 1.5px solid #e0d8d0; border-radius: 8px; font-size: 14px; font-family: 'Lato', sans-serif; background: #faf6f0; color: #2c2c2a; outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: #ff9500; background: #fff; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.btn-book { width: 100%; padding: 16px; background: linear-gradient(135deg, #c85000, #ff6b00); color: #fff; border: none; border-radius: 10px; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; transition: opacity 0.2s; }
+.btn-book:hover { opacity: 0.9; }
+.success-msg { display: none; background: #eaf3de; border: 1px solid #97c459; border-radius: 10px; padding: 15px; text-align: center; color: #3b6d11; font-weight: 700; font-size: 15px; margin-top: 1rem; }
+
+.contact-cards { display: grid; gap: 14px; }
+.contact-card { background: #fff; border-radius: 12px; padding: 1.3rem 1.5rem; border: 1px solid #e8e0d8; display: flex; align-items: flex-start; gap: 16px; }
+.contact-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #c85000, #ff6b00); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; }
+.contact-title { font-weight: 700; font-size: 14px; color: #2c2c2a; margin-bottom: 5px; }
+.contact-detail { font-size: 14px; color: #888780; line-height: 1.7; }
+
+.map-placeholder { border-radius: 12px; border: 1px dashed #e0d0b0; background: #f5ede0; height: 160px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; margin-top: 1.5rem; cursor: pointer; text-decoration: none; }
+.map-label { font-size: 14px; font-weight: 700; color: #c85000; }
+.map-sub { font-size: 12px; color: #888780; }
+
+.hours-wrap { margin-top: 1.5rem; }
+.hours-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c1200; margin-bottom: 0.8rem; }
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hour-row { display: flex; justify-content: space-between; padding: 10px 14px; background: #fff; border-radius: 8px; border: 1px solid #e8e0d8; font-size: 13px; }
+.day-name { color: #888780; }
+.day-time { font-weight: 700; color: #c85000; }
+
+footer { background: #2c1200; color: rgba(255,255,255,0.6); text-align: center; padding: 1.8rem; font-size: 13px; line-height: 2; }
+footer strong { color: #ff9500; }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.4rem; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .hours-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Est. 2008 &bull; Authentic Punjabi Cuisine</div>
+  <h1>Sardar Ji <span>Dhaba</span></h1>
+  <p class="hero-sub">Ghar jaisa khana, dil se banaya</p>
+  <div class="hero-divider"></div>
+</div>
+
+<nav>
+  <a class="active" onclick="showPage('home',this)">Home</a>
+  <a onclick="showPage('menu',this)">Menu</a>
+  <a onclick="showPage('booking',this)">Seat Book Karein</a>
+  <a onclick="showPage('contact',this)">Sampark</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="section">
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Saal ka<br>Anubhav</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Dishes<br>Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">&#9733; 4.8</div>
+        <div class="stat-label">Customer<br>Rating</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Hamare Baare Mein</h2>
+    <p class="section-sub">Asli Punjabi swad, seedha dil se</p>
+    <div class="about-text">
+      Sardar Ji Dhaba mein aapka tah dil se swagat hai! Hamare yahan har dish traditional Punjabi recipes se banayi jaati hai — bilkul ghar jaisi. 2008 se hum apne pyaar se khana pakate hain aur har customer ko family ki tarah maante hain.<br><br>
+      Hamare fresh tandoor mein bani rotiyaan, desi ghee ki dal makhani, thandi mast lassi — yeh sab milke ek aisa anubhav deta hai jo aap kabhi nahi bhoolenge. Hazratganj, Lucknow ke dil mein, hum aapka intezaar karte hain!
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="page">
+  <div class="section">
+    <h2 class="section-title">Hamara Menu</h2>
+    <p class="section-sub">Sabse fresh, asli aur ghar jaisi Punjabi dishes</p>
+
+    <div class="menu-category">
+      <div class="cat-title">&#127859; Dal &amp; Sabzi</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Dal Makhani</div><div class="item-desc">Overnight cooked, desi ghee</div></div><div class="item-price">&#8377;180</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Paneer Butter Masala</div><div class="item-desc">Rich tomato gravy</div></div><div class="item-price">&#8377;220</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Chhole Bhature</div><div class="item-desc">2 bhature + masaledar chhole</div></div><div class="item-price">&#8377;150</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Aloo Gobi</div><div class="item-desc">Home style masala</div></div><div class="item-price">&#8377;140</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Palak Paneer</div><div class="item-desc">Creamy spinach gravy</div></div><div class="item-price">&#8377;200</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Mix Veg</div><div class="item-desc">Seasonal vegetables</div></div><div class="item-price">&#8377;160</div></div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="cat-title">&#127831; Non-Veg Special</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Butter Chicken</div><div class="item-desc">Murgh makhani classic</div></div><div class="item-price">&#8377;280</div></div>
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Mutton Rogan Josh</div><div class="item-desc">Slow cooked, Kashmiri spices</div></div><div class="item-price">&#8377;350</div></div>
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Tandoori Chicken</div><div class="item-desc">Half / Full plate</div></div><div class="item-price">&#8377;320</div></div>
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Chicken Biryani</div><div class="item-desc">Dum style, full masala</div></div><div class="item-price">&#8377;260</div></div>
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Egg Curry</div><div class="item-desc">Desi masala gravy</div></div><div class="item-price">&#8377;180</div></div>
+        <div class="menu-item"><div><span class="nonveg-dot"></span><div class="item-name">Fish Fry</div><div class="item-desc">Crispy, Ajwain spiced</div></div><div class="item-price">&#8377;300</div></div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="cat-title">&#127839; Roti &amp; Rice</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Tandoori Roti</div><div class="item-desc">Fresh from tandoor</div></div><div class="item-price">&#8377;25</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Butter Naan</div><div class="item-desc">Soft, hand-stretched</div></div><div class="item-price">&#8377;40</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Garlic Naan</div><div class="item-desc">With fresh garlic butter</div></div><div class="item-price">&#8377;50</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Jeera Rice</div><div class="item-desc">Basmati, tempered cumin</div></div><div class="item-price">&#8377;120</div></div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="cat-title">&#127870; Drinks &amp; Mithai</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Sweet Lassi</div><div class="item-desc">Thick, chilled, desi style</div></div><div class="item-price">&#8377;80</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Salted Lassi</div><div class="item-desc">Jeera wali</div></div><div class="item-price">&#8377;70</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Gulab Jamun</div><div class="item-desc">Garam, 2 pieces</div></div><div class="item-price">&#8377;60</div></div>
+        <div class="menu-item"><div><span class="veg-dot"></span><div class="item-name">Kheer</div><div class="item-desc">Rice pudding, kesar</div></div><div class="item-price">&#8377;90</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div id="booking" class="page">
+  <div class="section">
+    <h2 class="section-title">Seat Book Karein</h2>
+    <p class="section-sub">Apni jagah pehle se reserve karein — bilkul free</p>
+    <div class="booking-form">
+      <div class="form-row">
+        <label class="form-label">Aapka Poora Naam</label>
+        <input class="form-input" type="text" id="bname" placeholder="Jaise: Harpreet Singh" />
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" id="bphone" placeholder="98XXXXXXXX" />
+        </div>
+        <div class="form-row">
+          <label class="form-label">Kitne Log Aayenge</label>
+          <select class="form-input" id="bguests">
+            <option>1 – 2 log</option>
+            <option>3 – 4 log</option>
+            <option>5 – 6 log</option>
+            <option>7 ya zyada (group / party)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label">Tarikh Chunein</label>
+          <input class="form-input" type="date" id="bdate" />
+        </div>
+        <div class="form-row">
+          <label class="form-label">Samay Chunein</label>
+          <select class="form-input" id="btime">
+            <option>12:00 PM – Lunch</option>
+            <option>01:00 PM – Lunch</option>
+            <option>07:00 PM – Dinner</option>
+            <option>08:00 PM – Dinner</option>
+            <option>09:00 PM – Dinner</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Koi Khaas Farmaish? (Optional)</label>
+        <textarea class="form-input" id="bnote" rows="2" placeholder="Jaise: Birthday celebration, window seat chahiye, koi allergy hai..."></textarea>
+      </div>
+      <button class="btn-book" onclick="submitBooking()">Seat Confirm Karein &#8594;</button>
+      <div class="success-msg" id="successMsg">
+        &#10003; Booking ho gayi! Hamare staff aapko jald call karenge confirm karne ke liye. Dhanyawad!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="section">
+    <h2 class="section-title">Hamare Yahan Aayein</h2>
+    <p class="section-sub">Hum hamesha aapka intezaar karte hain</p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon">&#128205;</div>
+        <div>
+          <div class="contact-title">Hamara Pata (Address)</div>
+          <div class="contact-detail">Plot No. 42, Near Gomat River,<br>Hazratganj, Lucknow — 226001<br>Uttar Pradesh, India</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">&#128222;</div>
+        <div>
+          <div class="contact-title">Phone / WhatsApp</div>
+          <div class="contact-detail">+91 98765 43210<br>+91 91234 56789</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">&#9993;</div>
+        <div>
+          <div class="contact-title">Email &amp; Website</div>
+          <div class="contact-detail">info@sardarjidhaba.in<br>www.sardarjidhaba.in</div>
+        </div>
+      </div>
+    </div>
+
+    <a class="map-placeholder" href="https://maps.google.com/?q=Hazratganj+Lucknow" target="_blank">
+      <div style="font-size:36px;">&#128205;</div>
+      <div class="map-label">Sardar Ji Dhaba — Hazratganj, Lucknow</div>
+      <div class="map-sub">Google Maps par dekhne ke liye click karein &#8594;</div>
+    </a>
+
+    <div class="hours-wrap">
+      <div class="hours-title">&#128336; Kholne ke Samay</div>
+      <div class="hours-grid">
+        <div class="hour-row"><span class="day-name">Somvar – Shukravar</span><span class="day-time">11am – 11pm</span></div>
+        <div class="hour-row"><span class="day-name">Shanivaar – Ravivaar</span><span class="day-time">10am – 11pm</span></div>
+        <div class="hour-row" style="grid-column:1/-1"><span class="day-name">Lunch Hours</span><span class="day-time">12pm – 3:30pm</span></div>
+        <div class="hour-row" style="grid-column:1/-1"><span class="day-name">Dinner Hours</span><span class="day-time">7pm – 11pm</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Sardar Ji Dhaba</strong> &bull; Hazratganj, Lucknow, Uttar Pradesh<br>
+  &copy; 2024 sardarjidhaba.in &nbsp;&bull;&nbsp; Pyaar se banaya, dil se khilaya &#10084;
+</footer>
+
+<script>
+function showPage(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+function submitBooking() {
+  var name = document.getElementById('bname').value.trim();
+  var phone = document.getElementById('bphone').value.trim();
+  var date = document.getElementById('bdate').value;
+  if (!name || !phone || !date) {
+    alert('Kripya naam, phone number aur tarikh zaroor bharen!');
+    return;
+  }
+  document.getElementById('successMsg').style.display = 'block';
+  var btn = document.querySelector('.btn-book');
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  btn.textContent = 'Booking Ho Gayi ✓';
+}
+</script>
+</body>
+</html>
